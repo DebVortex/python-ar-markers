@@ -45,7 +45,7 @@ def detect_markers(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     edges = cv2.Canny(gray, 10, 100)
-    contours, hierarchy = cv2.findContours(edges.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+    contours, hierarchy = cv2.findContours(edges.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)[-2:]
 
     # We only keep the long enough contours
     min_contour_length = min(width, height) / 50
